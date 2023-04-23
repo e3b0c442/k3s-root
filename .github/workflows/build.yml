@@ -1,0 +1,23 @@
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        arch: [amd64, arm64, arm, ppc64le, s390x]
+    runs-on: ubuntu-latest
+    container: 
+      image: rancher/dapper:v0.5.0
+      env: 
+        BUILDARCH: ${{ matrix.arch }}
+        VERBOSE: "0"
+      volumes: 
+        - /var/run/docker.sock:/var/run/docker.sock
+    steps: 
+      - run: dapper ci
