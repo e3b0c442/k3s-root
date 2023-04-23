@@ -22,3 +22,9 @@ jobs:
     steps: 
       - uses: actions/checkout@v3
       - run: dapper ci
+      - uses: actions/upload-artifact@v3
+        with:
+          name: k3s-root-${{ matrix.arch }}
+          path: |
+            /source/dist/k3s-root-${{ matrix.arch }}.tar
+            /source/dist/k3s-root-xtables-${{ matrix.arch }}.tar
