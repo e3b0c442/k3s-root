@@ -39,13 +39,13 @@ jobs:
       - uses: softprops/action-gh-release@v1
         with:
           files: |
-            k3s-root-amd64.tar
-            k3s-root-arm64.tar
-            k3s-root-arm.tar
-            k3s-root-ppc64le.tar
-            k3s-root-s390x.tar
-            k3s-root-xtables-amd64.tar
-            k3s-root-xtables-arm64.tar
-            k3s-root-xtables-arm.tar
-            k3s-root-xtables-ppc64le.tar
-            k3s-root-xtables-s390x.tar
+            k3s-root-amd64/k3s-root-amd64.tar
+            k3s-root-arm64/k3s-root-arm64.tar
+            k3s-root-arm/k3s-root-arm.tar
+            k3s-root-ppc64le/k3s-root-ppc64le.tar
+            k3s-root-s390x/k3s-root-s390x.tar
+            k3s-root-xtables-amd64/k3s-root-xtables-amd64.tar
+            k3s-root-xtables-arm64/k3s-root-xtables-arm64.tar
+            k3s-root-xtables-arm/k3s-root-xtables-arm.tar
+            k3s-root-xtables-ppc64le/k3s-root-xtables-ppc64le.tar
+            k3s-root-xtables-s390x/k3s-root-xtables-s390x.tar
