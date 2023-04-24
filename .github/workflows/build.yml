@@ -25,8 +25,8 @@ jobs:
         with:
           name: k3s-root-${{ matrix.arch }}
           path: |
-            /source/dist/k3s-root-${{ matrix.arch }}.tar
-            /source/dist/k3s-root-xtables-${{ matrix.arch }}.tar
+            k3s-root-${{ matrix.arch }}.tar
+            k3s-root-xtables-${{ matrix.arch }}.tar
   release:
     if: startsWith(github.ref, 'refs/tags/')
     runs-on: ubuntu-latest
