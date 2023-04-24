@@ -2,9 +2,8 @@ on:
   push:
     branches:
       - main
-  pull_request:
-    branches:
-      - main
+    tags:
+      - '*'
 
 jobs:
   build:
@@ -28,3 +27,21 @@ jobs:
           path: |
             /source/dist/k3s-root-${{ matrix.arch }}.tar
             /source/dist/k3s-root-xtables-${{ matrix.arch }}.tar
+  release:
+    if: startsWith(github.ref, 'refs/tags/')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifacts@v3
+      - uses: softprops/action-gh-release@v1
+        with:
+          files: |
+            k3s-root-amd64.tar
+            k3s-root-arm64.tar
+            k3s-root-arm.tar
+            k3s-root-ppc64le.tar
+            k3s-root-s390x.tar
+            k3s-root-xtables-amd64.tar
+            k3s-root-xtables-arm64.tar
+            k3s-root-xtables-arm.tar
+            k3s-root-xtables-ppc64le.tar
+            k3s-root-xtables-s390x.tar
